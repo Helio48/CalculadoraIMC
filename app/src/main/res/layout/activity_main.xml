@@ -6,61 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Botão Calcular -->
+    <!-- Garantindo um tamanho adequado para o toque -->
+    android:minWidth="48dp" />
+
+    <!-- Layout de Entrada de Peso -->
     <Button
         android:id="@+id/btn_calcular"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:minHeight="48dp"
         android:text="Calcular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutAltura"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="match_parent"
+        android:id="@+id/textInputLayoutPeso"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayoutAltura"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
-
+        <!-- Tornando o texto acessível -->
+        android:contentDescription="Campo de Peso"
+        android:imeActionId="@+id/edt_peso"
+        android:minHeight="48dp"  <!-- Tamanho mínimo para toque -->
+        android:minWidth="48dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Layout de Entrada de Altura -->
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+        android:id="@+id/textInputLayoutAltura"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textInputEditText"
+        app:layout_constraintBottom_toTopOf="@+id/edt_altura"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
-
+        <!-- Tornando o texto acessível -->
+        android:contentDescription="Campo de Altura"
+        android:imeActionId="@+id/edt_altura"
+        android:minHeight="48dp"  <!-- Tamanho mínimo para toque -->
+        android:minWidth="48dp" /></com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-
-        android:id="@+id/textInputEditText"
+        android:id="@+id/edt_peso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite seu peso ex: 69.500"
-        android:imeActionId="@+id/edt_peso"
+        android:importantForAccessibility="yes"
         android:inputType="numberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2"
-        tools:ignore="InvalidImeActionId"
-        tools:layout_editor_absoluteX="23dp" />
-
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-
-        android:id="@+id/textInputEditText2"
+        android:id="@+id/edt_altura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite sua altura ex: 1.79"
-        android:imeActionId="@+id/edt_altura"
+        android:importantForAccessibility="yes"
         android:inputType="numberDecimal"
-        tools:ignore="InvalidImeActionId,MissingConstraints" />
-
+        app:layout_constraintTop_toBottomOf="@+id/edt_peso"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
